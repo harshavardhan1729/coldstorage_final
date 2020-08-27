@@ -1,0 +1,16 @@
+{% extends "coldstorage/base.html" %}
+{% block content %}
+    {% for coldstorage in storages %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="#">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ coldstorage.name }}</a>
+              <small class="text-muted">{{ coldstorage.date_modified|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'coldstorage-detail' coldstorage.id%}">{{ coldstorage.name }}</a></h2>
+            <p class="article-content">{{ coldstorage.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

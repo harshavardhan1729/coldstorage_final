@@ -1,0 +1,26 @@
+{% extends "coldstorage/base.html" %}
+{% block content %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.name }}</a>
+              <large class="text-muted"> {{object.phone}} </large>
+              <small class="text-muted">{{ object.date_modified|date:"F d, Y" }}</small>
+            {%if object.email == user.email  %}
+              <div>
+            <a class="btn btn-secondary btn-sm mb-1" href="#">Update</a>
+            <a class="btn btn-danger btn-sm mb-1" href="#">delete</a>
+              </div>
+              {% else %}
+              <div>
+                <a class="btn btn-secondary btn-sm mb-1" href="#">Request storage</a>
+                  </div>
+            {% endif %}
+            </div>
+            <h2 class="article-title">{{ object.name }}</h2>
+            <p class="article-content">{{ object.description }}</p>
+
+          </div>
+        </article>
+{% endblock content %}
