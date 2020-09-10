@@ -23,3 +23,13 @@ class Coldstorage(models.Model):
 
     def get_absolute_url(self):
         return reverse('coldstorage-detail',kwargs={'pk':self.pk})
+class Requests(models.Model):
+    farmer_name=models.CharField(max_length=30)
+    phone=models.CharField(max_length=10)
+    crop_type=models.CharField(max_length=20)
+    duration=models.IntegerField()
+    address=models.TextField()
+    quantity=models.IntegerField()
+    #email=models.ForeignKey(Coldstorage,on_delete=models.CASCADE,blank=True,null=True)
+    def __str__(self):
+            return self.farmer_name

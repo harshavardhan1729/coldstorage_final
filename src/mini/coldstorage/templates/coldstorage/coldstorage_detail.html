@@ -9,12 +9,13 @@
               <small class="text-muted">{{ object.date_modified|date:"F d, Y" }}</small>
             {%if object.email == user.email  %}
               <div>
-            <a class="btn btn-secondary btn-sm mb-1" href="#">Update</a>
-            <a class="btn btn-danger btn-sm mb-1" href="#">delete</a>
+            <a class="btn btn-secondary btn-sm mb-1" href="{%url 'coldstorage-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mb-1" href="{%url 'coldstorage-delete' object.id %}">delete</a>
               </div>
               {% else %}
               <div>
-                <a class="btn btn-secondary btn-sm mb-1" href="#">Request storage</a>
+                <a class="btn btn-secondary btn-sm mb-1" href="{%url 'coldstorage-request' object.id %}">Request storage</a>
+                <!--   -->
                   </div>
             {% endif %}
             </div>
