@@ -33,7 +33,7 @@
             </div>
             <div class="navbar-nav">
               {%if user.is_authenticated %}
-              <a class="nav-item nav-link" href="#">Requests</a>
+              <a class="nav-item nav-link" href="{%url 'user-requests'%}">Requests</a>
               <a class="nav-item nav-link" href="{% url 'coldstorage-create'%}">Add storage</a>
               <a class="nav-item nav-link" href="{% url 'profile'%}">Profile</a>
               <a class="nav-item nav-link" href="{%url 'logout' %}">Logout</a>

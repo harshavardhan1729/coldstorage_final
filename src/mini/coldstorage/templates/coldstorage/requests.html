@@ -1,0 +1,17 @@
+{% extends "coldstorage/base.html" %}
+{% block content %}
+    {% for coldstorage in request_list %}
+        <article class="media content-section">
+         
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'user-requests-detail' coldstorage.id%}">{{ coldstorage.farmer_name }}</a><br>
+              <h4>Requested Storage: <b>{{coldstorage.quantity}}</b> </h4><br>
+              <h4>Requested Time: {{coldstorage.duration}} months</h4>
+            </div>
+            <!-- <h2><a class="article-title" href="{% url 'coldstorage-detail' coldstorage.id%}">{{ coldstorage.name }}</a></h2>
+            <p class="article-content">{{ coldstorage.description }}</p> -->
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

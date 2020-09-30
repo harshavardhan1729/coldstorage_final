@@ -1,8 +1,26 @@
 {% extends "coldstorage/base.html" %}
 {% block content %}
+{%if user.is_authenticated %}
+{% for coldstorage in storages %}
+       {% if user.email == coldstorage.email%}
+  <article class="media content-section">
+          <!-- <img class="rounded-circle article-img" src="#"> -->
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ coldstorage.name }}</a>
+              <small class="text-muted">{{ coldstorage.date_modified|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'coldstorage-detail' coldstorage.id%}">{{ coldstorage.name }}</a></h2>
+            <p class="article-content">{{ coldstorage.description }}</p>
+          </div>
+        </article>
+        {% endif %}
+    {% endfor %}
+
+{% else %}
     {% for coldstorage in storages %}
         <article class="media content-section">
-          <img class="rounded-circle article-img" src="#">
+          <!-- <img class="rounded-circle article-img" src="#"> -->
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ coldstorage.name }}</a>
@@ -13,4 +31,5 @@
           </div>
         </article>
     {% endfor %}
+{% endif %}
 {% endblock content %}

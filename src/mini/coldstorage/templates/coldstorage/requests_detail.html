@@ -1,0 +1,13 @@
+{% extends "coldstorage/base.html" %}
+{% block content %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+             <a class="mr-3" href="#">{{ object.farmer_name }}</a>
+              <large class="text-muted"> {{object.phone}} </large>
+            </div>
+            <a class="btn btn-secondary btn-sm mb-1" href="{%url 'user-requests-accept'  object.id %}">Accept</a>
+            <a class="btn btn-danger btn-sm mb-1" href="{%url 'user-requests-reject'  object.id %}">Reject</a>   
+          </div>
+        </article>
+{% endblock content %}
